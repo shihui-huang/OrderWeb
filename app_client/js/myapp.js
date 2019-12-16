@@ -7,12 +7,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
     .state('home', {
        url: '/home',
-       templateUrl: 'home/home.html'
+       templateUrl: 'page_home/home.html'
     })
 
-    .state('page2', {
-       url: '/page2',
-       templateUrl: 'page2/page2.html'
+    .state('menu', {
+       url: '/menu',
+       templateUrl: 'page_menu/menu.html'
     });
 
     $urlRouterProvider.otherwise('home');
