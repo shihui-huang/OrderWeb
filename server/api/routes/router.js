@@ -1,15 +1,26 @@
 'use strict';
 module.exports = function (app) {
-    var orderList = require('../controllers/orderController');
+    var order = require('../controllers/orderController');
+    var restaurant = require('../controllers/restaurantController');
 
     // todoList Routes
     app.route('/orders')
-        .get(orderList.list)
-        .post(orderList.create);
+        .get(order.list)
+        .post(order.create);
 
 
     app.route('/orders/:orderId')
-        .get(orderList.read)
-        .put(orderList.update)
-        .delete(orderList.delete);
+        .get(order.read)
+        .put(order.update)
+        .delete(order.delete);
+
+    app.route('/restaurants')
+        .get(restaurant.list)
+        .post(restaurant.create);
+
+
+    app.route('/restaurants/:restaurantId')
+        .get(restaurant.read)
+        .put(restaurant.update)
+        .delete(restaurant.delete);
 };

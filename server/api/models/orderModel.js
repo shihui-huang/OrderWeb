@@ -18,7 +18,11 @@ var OrderSchema = new Schema({
             enum: ['pending', 'ongoing', 'completed']
         }],
         default: ['pending']
+    },
+    restaurant: {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'Restaurant'
     }
 });
 
-module.exports = mongoose.model('Orders', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema);

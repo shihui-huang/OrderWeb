@@ -1,15 +1,17 @@
 'use strict';
 
-
 var mongoose = require('mongoose'),
-    Order = mongoose.model('Orders');
+    Order = mongoose.model('Order');
 
 exports.list = function (req, res) {
-    Order.find({}, function (err, order) {
-        if (err)
-            res.send(err);
-        res.json(order);
-    });
+    Order.find()
+        .populate('restaurant')
+        .exec(function (err, order) {
+                if (err)
+                    res.send(err);
+                res.json(order);
+            }
+        );
 };
 
 
@@ -24,7 +26,9 @@ exports.create = function (req, res) {
 
 
 exports.read = function (req, res) {
-    Order.findById(req.params.orderId, function (err, order) {
+    Order.findById(req.params.orderId)
+        .populate('restaurant')
+        .exec( function (err, order) {
         if (err)
             res.send(err);
         res.json(order);
