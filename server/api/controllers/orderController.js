@@ -1,23 +1,43 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    Order = mongoose.model('Order');
+var Order = require('../models/orderModel.js');
 
-exports.list = function (req, res) {
-    Order.find()
-        .populate('restaurant')
-        .exec(function (err, order) {
-                if (err)
-                    res.send(err);
-                res.json(order);
-            }
-        );
+exports.list = function(req, res) {
+    Order.getAllOrder(function(err, order) {
+
+        console.log('controller');
+        if (err)
+            res.send(err);
+        console.log('res', order);
+        res.send(order);
+    });
 };
 
 
-exports.create = function (req, res) {
-    var newOrder = new Order(req.body);
-    newOrder.save(function (err, order) {
+
+exports.create = function(req, res) {
+    var new_order = new Order(req.body);
+/*
+    //handles null error 
+    if( !new_order.status){
+
+        res.status(400).send({ error:true, message: 'Please provide order/status' });
+
+    }
+    else{
+*/
+        Order.createOrder(new_order, function(err, order) {
+
+            if (err)
+                res.send(err);
+            res.json(order);
+        });
+    //}
+};
+
+
+exports.read = function(req, res) {
+    Order.getOrderById(req.params.orderId, function(err, order) {
         if (err)
             res.send(err);
         res.json(order);
@@ -25,10 +45,8 @@ exports.create = function (req, res) {
 };
 
 
-exports.read = function (req, res) {
-    Order.findById(req.params.orderId)
-        .populate('restaurant')
-        .exec( function (err, order) {
+exports.update = function(req, res) {
+    Order.updateById(req.params.orderId, new Order(req.body), function(err, order) {
         if (err)
             res.send(err);
         res.json(order);
@@ -36,21 +54,12 @@ exports.read = function (req, res) {
 };
 
 
-exports.update = function (req, res) {
-    Order.findOneAndUpdate({_id: req.params.orderId}, req.body, {new: true}, function (err, order) {
-        if (err)
-            res.send(err);
-        res.json(order);
-    });
-};
+exports.delete = function(req, res) {
 
 
-exports.delete = function (req, res) {
-    Order.remove({
-        _id: req.params.orderId
-    }, function (err, order) {
+    Order.remove( req.params.orderId, function(err, order) {
         if (err)
             res.send(err);
-        res.json({message: 'Task successfully deleted'});
+        res.json({ message: 'Order successfully deleted' });
     });
 };

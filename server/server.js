@@ -1,14 +1,8 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
-    mongoose = require('mongoose'),
-    Order = require('./api/models/orderModel'),
-    Restaurant = require('./api/models/restaurantModel'),
+    mysql = require('mysql'),
     bodyParser = require('body-parser');
-
-// mongoose instance connection url connection
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Orderdb');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
