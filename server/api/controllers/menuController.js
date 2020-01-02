@@ -2,8 +2,8 @@
 
 var Menu = require('../models/menuModel.js');
 
-exports.list = function(req, res) {
-    Menu.getAllMenu(function(err, menu) {
+exports.list = function (req, res) {
+    Menu.getAllMenu(function (err, menu) {
 
         console.log('controller');
         if (err)
@@ -13,53 +13,47 @@ exports.list = function(req, res) {
     });
 };
 
-
-
-exports.create = function(req, res) {
+exports.create = function (req, res) {
     var new_menu = new Menu(req.body);
-    /*
-        //handles null error
-        if( !new_menu.status){
 
-            res.status(400).send({ error:true, message: 'Please provide menu/status' });
+    //handles null error
+    if (!new_menu.name) {
 
-        }
-        else{
-    */
-    Menu.createMenu(new_menu, function(err, menu) {
+        res.status(400).send({error: true, message: 'Please provide menu/status'});
 
-        if (err)
-            res.send(err);
-        res.json(menu);
-    });
-    //}
+    } else {
+
+        Menu.createMenu(new_menu, function (err, menu) {
+
+            if (err)
+                res.send(err);
+            res.json(menu);
+        })
+    }
 };
 
-
-exports.read = function(req, res) {
-    Menu.getMenuById(req.params.menuId, function(err, menu) {
-        if (err)
-            res.send(err);
-        res.json(menu);
-    });
-};
-
-
-exports.update = function(req, res) {
-    Menu.updateById(req.params.menuId, new Menu(req.body), function(err, menu) {
+exports.read = function (req, res) {
+    Menu.getMenuById(req.params.menuId, function (err, menu) {
         if (err)
             res.send(err);
         res.json(menu);
     });
 };
 
-
-exports.delete = function(req, res) {
-
-
-    Menu.remove( req.params.menuId, function(err, menu) {
+exports.update = function (req, res) {
+    Menu.updateById(req.params.menuId, new Menu(req.body), function (err, menu) {
         if (err)
             res.send(err);
-        res.json({ message: 'Menu successfully deleted' });
+        res.json(menu);
+    });
+};
+
+exports.delete = function (req, res) {
+
+
+    Menu.remove(req.params.menuId, function (err, menu) {
+        if (err)
+            res.send(err);
+        res.json({message: 'Menu successfully deleted'});
     });
 };
