@@ -1,29 +1,43 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    Restaurant = mongoose.model('Restaurant');
+var Restaurant = require('../models/restaurantModel.js');
 
 exports.list = function (req, res) {
-    Restaurant.find({}, function (err, restaurant) {
+    Restaurant.getAllRestaurant(function (err, restaurant) {
         if (err)
             res.send(err);
-        res.json(restaurant);
+        console.log('res', restaurant);
+        res.send(restaurant);
     });
 };
 
 
 exports.create = function (req, res) {
-    var newRestau = new Restaurant(req.body);
-    newRestau.save(function (err, restaurant) {
-        if (err)
-            res.send(err);
-        res.json(restaurant);
-    });
+    var new_restaurant = new Restaurant(req.body);
+
+    //handles null error 
+    if (!new_restaurant.ownerId) {
+
+        res.status(400).send({error: true, message: 'Please provide restaurant/ownerId'});
+
+    } else if (!new_restaurant.name) {
+
+        res.status(400).send({error: true, message: 'Please provide restaurant/name'});
+
+    } else {
+
+        Restaurant.createRestaurant(new_restaurant, function (err, restaurant) {
+
+            if (err)
+                res.send(err);
+            res.json(restaurant);
+        });
+    }
 };
 
 
 exports.read = function (req, res) {
-    Restaurant.findById(req.params.restaurantId, function (err, restaurant) {
+    Restaurant.getRestaurantById(req.params.restaurantId, function (err, restaurant) {
         if (err)
             res.send(err);
         res.json(restaurant);
@@ -32,7 +46,7 @@ exports.read = function (req, res) {
 
 
 exports.update = function (req, res) {
-    Restaurant.findOneAndUpdate({_id: req.params.restaurantId}, req.body, {new: true}, function (err, restaurant) {
+    Restaurant.updateById(req.params.restaurantId, new Restaurant(req.body), function (err, restaurant) {
         if (err)
             res.send(err);
         res.json(restaurant);
@@ -41,9 +55,9 @@ exports.update = function (req, res) {
 
 
 exports.delete = function (req, res) {
-    Restaurant.remove({
-        _id: req.params.restaurantId
-    }, function (err, restaurant) {
+
+
+    Restaurant.remove(req.params.restaurantId, function (err, restaurant) {
         if (err)
             res.send(err);
         res.json({message: 'Restaurant successfully deleted'});
