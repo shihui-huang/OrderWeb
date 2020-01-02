@@ -71,7 +71,7 @@ Menu.remove = function(id, result){
     });
 };
 
-var createTable ='create table if not exists menus(id int unsigned auto_increment + primary key, name char(255) not null, description char(255) null, price int unsigned null, is_available tinyint(1) default 1 null, restaurantId int unsigned null, constraint menus_restaurants_id_fk foreign key (restaurantId) references restaurants (id) on delete cascade);';
+var createTable ='create table if not exists menus(id int unsigned auto_increment primary key, name char(255) not null, description char(255) null, price int unsigned null, is_available tinyint(1) default 1 null, restaurantId int unsigned null, constraint menus_restaurants_id_fk foreign key (restaurantId) references restaurants (id) on delete cascade);';
 sql.query(createTable, function (err, res) {
     if(err) {
         console.log("error: ", err);
