@@ -1,9 +1,9 @@
 'use strict';
 
-var mysql = require('mysql');
+let mysql = require('mysql');
 
 //local mysql db connection
-var connection = mysql.createConnection({
+let connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'user',
     password : 'password',

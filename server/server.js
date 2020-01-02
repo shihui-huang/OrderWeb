@@ -1,7 +1,6 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
-    mysql = require('mysql'),
     bodyParser = require('body-parser');
 
 

@@ -4,8 +4,6 @@ var Menu = require('../models/menuModel.js');
 
 exports.list = function (req, res) {
     Menu.getAllMenu(function (err, menu) {
-
-        console.log('controller');
         if (err)
             res.send(err);
         console.log('res', menu);

@@ -1,5 +1,6 @@
 'use strict';
 let sql = require('./db.js');
+let builder = require('./modelsBuilder');
 
 //Order object constructor
 let Order = function (order) {
@@ -8,63 +9,11 @@ let Order = function (order) {
     this.menuId = order.menuId;
     this.created_at = new Date();
 };
-Order.createOrder = function (newOrder, result) {
-    sql.query("INSERT INTO orders set ?", newOrder, function (err, res) {
-
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-        } else {
-            result(null, res.insertId);
-        }
-    });
-};
-Order.getOrderById = function (orderId, result) {
-    sql.query("Select ordr from orders where id = ? ", orderId, function (err, res) {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-        } else {
-            result(null, res);
-
-        }
-    });
-};
-Order.getAllOrder = function (result) {
-    sql.query("Select * from orders", function (err, res) {
-
-        if (err) {
-            console.log("error: ", err);
-            result(null, err);
-        } else {
-            console.log('orders : ', res);
-
-            result(null, res);
-        }
-    });
-};
-Order.updateById = function (id, order, result) {
-    sql.query("UPDATE orders SET ordr = ? WHERE id = ?", [order, id], function (err, res) {
-        if (err) {
-            console.log("error: ", err);
-            result(null, err);
-        } else {
-            result(null, res);
-        }
-    });
-};
-Order.remove = function (id, result) {
-    sql.query("DELETE FROM orders WHERE id = ?", [id], function (err, res) {
-
-        if (err) {
-            console.log("error: ", err);
-            result(null, err);
-        } else {
-
-            result(null, res);
-        }
-    });
-};
+Order.createOrder = builder.create('orders');
+Order.getOrderById = builder.read('orders');
+Order.getAllOrder = builder.list('orders');
+Order.updateById = builder.update('orders');
+Order.remove = builder.delete('orders');
 
 let createTable = 'create table if not exists orders(id int unsigned auto_increment primary key, status enum("pending", "achieved") default "pending" null, userId int unsigned null, menuId int unsigned null, created_at datetime null);';
 sql.query(createTable, function (err, res) {

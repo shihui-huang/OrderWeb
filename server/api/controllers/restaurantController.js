@@ -4,8 +4,6 @@ var Restaurant = require('../models/restaurantModel.js');
 
 exports.list = function(req, res) {
     Restaurant.getAllRestaurant(function(err, restaurant) {
-
-        console.log('controller');
         if (err)
             res.send(err);
         console.log('res', restaurant);

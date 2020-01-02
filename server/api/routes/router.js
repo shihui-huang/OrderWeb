@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function (app) {
-    var order = require('../controllers/orderController');
-    var restaurant = require('../controllers/restaurantController');
+    let order = require('../controllers/orderController');
+    let restaurant = require('../controllers/restaurantController');
     let owner = require('../controllers/ownerController');
     let menu = require('../controllers/menuController');
     let user = require('../controllers/userController');
@@ -51,5 +51,4 @@ module.exports = function (app) {
         .get(user.read)
         .put(user.update)
         .delete(user.delete);
-
 };

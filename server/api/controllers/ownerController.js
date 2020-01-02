@@ -1,11 +1,9 @@
 'use strict';
 
-var Owner = require('../models/ownerModel.js');
+let Owner = require('../models/ownerModel.js');
 
 exports.list = function (req, res) {
     Owner.getAllOwner(function (err, owner) {
-
-        console.log('controller');
         if (err)
             res.send(err);
         console.log('res', owner);
@@ -14,17 +12,13 @@ exports.list = function (req, res) {
 };
 
 exports.create = function (req, res) {
-    var new_owner = new Owner(req.body);
+    let new_owner = new Owner(req.body);
 
     //handles null error
     if (!new_owner.name) {
-
-        res.status(400).send({error: true, message: 'Please provide owner/status'});
-
+        res.status(400).send({error: true, message: 'Please provide owner/name'});
     } else {
-
         Owner.createOwner(new_owner, function (err, owner) {
-
             if (err)
                 res.send(err);
             res.json(owner);

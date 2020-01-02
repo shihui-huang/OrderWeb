@@ -4,8 +4,6 @@ var Order = require('../models/orderModel.js');
 
 exports.list = function(req, res) {
     Order.getAllOrder(function(err, order) {
-
-        console.log('controller');
         if (err)
             res.send(err);
         console.log('res', order);

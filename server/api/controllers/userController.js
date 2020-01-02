@@ -4,8 +4,6 @@ var User = require('../models/userModel.js');
 
 exports.list = function (req, res) {
     User.getAllUser(function (err, user) {
-
-        console.log('controller');
         if (err)
             res.send(err);
         console.log('res', user);
