@@ -55,3 +55,11 @@ exports.delete = function (req, res) {
         res.json({message: 'User successfully deleted'});
     });
 };
+
+exports.orders = function(req, res){
+    User.getOrders(req.params.userId, function (err, orders) {
+        if(err)
+            res.send(err);
+        res.json(orders);
+    })
+};

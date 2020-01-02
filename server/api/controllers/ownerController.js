@@ -49,3 +49,11 @@ exports.delete = function (req, res) {
         res.json({message: 'Owner successfully deleted'});
     });
 };
+
+exports.restaurants = function(req, res){
+    Owner.getRestaurants(req.params.ownerId, function (err, restaurants) {
+        if(err)
+            res.send(err);
+        res.json(restaurants);
+    })
+};

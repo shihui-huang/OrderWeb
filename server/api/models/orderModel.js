@@ -15,7 +15,15 @@ Order.getAllOrder = builder.list('orders');
 Order.updateById = builder.update('orders');
 Order.remove = builder.delete('orders');
 
-let createTable = 'create table if not exists orders(id int unsigned auto_increment primary key, status enum("pending", "achieved") default "pending" null, userId int unsigned null, menuId int unsigned null, created_at datetime null);';
+let createTable = 'create table if not exists orders(' +
+    'id int unsigned auto_increment primary key, ' +
+    'status enum("pending", "achieved") default "pending" null, ' +
+    'userId int unsigned null, ' +
+    'menuId int unsigned null, ' +
+    'created_at datetime null, ' +
+    'constraint orders_menus_id_fk foreign key (menuId) references menus (id), ' +
+    'constraint orders_users_id_fk foreign key (userId) references users (id));';
+
 sql.query(createTable, function (err, res) {
     if (err) {
         console.log("error: ", err);

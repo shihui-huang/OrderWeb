@@ -25,4 +25,16 @@ sql.query(createTable, function (err, res) {
     }
 });
 
+
+User.getOrders = function (id, result) {
+    sql.query("SELECT * from orders WHERE userId = ?", id, function (err, res) {
+        if(err){
+            console.log("error:", err);
+            result(err, null);
+        } else {
+            result(null, res);
+        }
+    })
+};
+
 module.exports = User;

@@ -43,6 +43,9 @@ module.exports = function (app) {
         .put(owner.update)
         .delete(owner.delete);
 
+    app.route('/owners/:ownerId/restaurants')
+        .get(owner.restaurants);
+
     app.route('/users')
         .get(user.list)
         .post(user.create);
@@ -51,4 +54,8 @@ module.exports = function (app) {
         .get(user.read)
         .put(user.update)
         .delete(user.delete);
+
+    app.all('*', function(req, res){
+        res.status(404).json({message: "Bad Route"});
+    })
 };
