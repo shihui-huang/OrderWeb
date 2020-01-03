@@ -1,11 +1,11 @@
-##Démarrage
-###Pour installer le serveur SQL:
+## Démarrage
+### Pour installer le serveur SQL:
 ```bash
 sudo apt install mysql-server
 sudo sytemctl start mysql
 ```
 
-###Pour initialiser la base de données:
+### Pour initialiser la base de données:
 ```bash
 sudo mysql
 ```
@@ -15,26 +15,28 @@ mysql> CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
 mysql> GRANT ALL PRIVILEGES ON javascript_project.* TO 'user'@'localhost';
 mysql> FLUSH PRIVILEGES;
 ```
+> Les tables sont automatiquement créées par le serveur, cependant elles seront vides.
+> Si une requête `GET`renvoie un objet vide, assurez vous d'avoir ajouté des données à la base.
 
-###Pour installer Node.js et les dépendances nécessaires:
+### Pour installer Node.js et les dépendances nécessaires:
 ```bash
 sudo apt install npm
 npm install
 ```
-###Pour démarrer le serveur de l'API:
+### Pour démarrer le serveur de l'API:
 ```bash
 npm start
 ```
 > Le serveur démarre en principe sur le port 3000
 
-##Fonctionnement
+## Fonctionnement
 
-###Fonctionnement général
-Une fois le serveur démarré, il attend des requêtes HTTP. Il permet ainsi de faire un lien 
+### Fonctionnement général
+Une fois le serveur démarré, il attend des requêtes HTTP, suivant le modèle REST. Il permet ainsi de faire un lien 
 entre une base de données centralisée et les divers clients. Les objets échangés dans les 
 corps des requêtes sont toujours au format json. 
 
-###Routage
+### Routage
 `<nom_objet>` désigne un des `owners`,`users`,`orders`,`menus`,`restaurants`.<br>
 Les routes de la forme `/<nom_objet>` sont accessibles avec les méthodes
 - `GET` qui permet d'avoir la liste de tous les objets de ce type présent en base de données.
