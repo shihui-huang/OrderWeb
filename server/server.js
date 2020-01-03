@@ -15,4 +15,4 @@ routes(app); //register the route
 app.listen(port);
 
 
-console.log('orders RESTful API server started on: ' + port);
+console.log('orders RESTful API server started on port: ' + port);

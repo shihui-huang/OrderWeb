@@ -47,11 +47,17 @@ exports.update = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-
-
     Menu.remove(req.params.menuId, function (err, menu) {
         if (err)
             res.send(err);
         res.json({message: 'Menu successfully deleted'});
     });
+};
+
+exports.orders = function (req, res) {
+    Menu.getOrders(req.params.menuId, function (err, orders) {
+        if (err)
+            res.send(err);
+        res.json(orders)
+    })
 };

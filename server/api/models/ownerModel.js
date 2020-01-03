@@ -25,6 +25,7 @@ Owner.getRestaurants = function (id, result) {
 };
 
 var createTable ='create table if not exists owners(id int unsigned auto_increment primary key, name char(255) not null);';
+
 sql.query(createTable, function (err, res) {
     if(err) {
         console.log("error: ", err);

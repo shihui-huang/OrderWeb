@@ -16,7 +16,27 @@ Menu.getAllMenu = builder.list('menus');
 Menu.updateById = builder.update('menus');
 Menu.remove = builder.delete('menus');
 
-let createTable = 'create table if not exists menus(id int unsigned auto_increment primary key, name char(255) not null, description char(255) null, price int unsigned null, is_available tinyint(1) default 1 null, restaurantId int unsigned null, constraint menus_restaurants_id_fk foreign key (restaurantId) references restaurants (id) on delete cascade);';
+Menu.getOrders = function (id, result) {
+    sql.query("SELECT * from orders WHERE menuId = ?", id, function (err, res) {
+        if(err){
+            console.log("error:", err);
+            result(err, null);
+        } else {
+            result(null, res);
+        }
+    })
+};
+
+let createTable = 'create table if not exists menus(' +
+    'id int unsigned auto_increment primary key, ' +
+    'name char(255) not null, ' +
+    'description char(255) null, ' +
+    'price int unsigned null, ' +
+    'is_available tinyint(1) default 1 null, ' +
+    'restaurantId int unsigned null, ' +
+    'constraint menus_restaurants_id_fk foreign key (restaurantId) references restaurants (id) on delete cascade' +
+    ');';
+
 sql.query(createTable, function (err, res) {
     if (err) {
         console.log("error: ", err);

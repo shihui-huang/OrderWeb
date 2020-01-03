@@ -17,7 +17,14 @@ Restaurant.getAllRestaurant = builder.list('restaurants');
 Restaurant.updateById = builder.update('restaurants');
 Restaurant.remove = builder.delete('restaurants');
 
-var createScript = 'create table if not exists restaurants(id int unsigned auto_increment primary key, name char(255) not null, ownerId int unsigned not null, address char(255) null, phone char(20) null, constraint restaurants_orders_id_fk foreign key (ownerId) references orders (id) on delete cascade);';
+var createScript = 'create table if not exists restaurants(' +
+    'id int unsigned auto_increment primary key, ' +
+    'name char(255) not null, ' +
+    'ownerId int unsigned not null, ' +
+    'address char(255) null, ' +
+    'phone char(20) null, ' +
+    'constraint restaurants_owners_id_fk foreign key (ownerId) references owners (id) on delete cascade' +
+    ');';
 
 sql.query(createScript, [], function (err, res) {
     if (err) {
