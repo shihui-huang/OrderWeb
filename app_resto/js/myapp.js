@@ -8,12 +8,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
        url: '/home',
        templateUrl: 'home/home.html'
-    })
-
-    .state('page2', {
-       url: '/page2',
-       templateUrl: 'page2/page2.html'
-    });
+    })   
 
     $urlRouterProvider.otherwise('home');
 
