@@ -1,72 +1,88 @@
-<main>
-<div class="position-relative">
-    <!-- shape Hero -->
-    <section class="section section-lg section-shaped pb-250">
-        <div class="shape shape-style-1 shape-default">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="container py-lg-md d-flex">
-            <div class="col px-0">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h1 class="display-3  text-white">A beautiful Design System<span>completed with examples</span></h1>
-                        <p class="lead  text-white">The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                        <div class="btn-wrapper">
-                            <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn btn-info btn-icon mb-3 mb-sm-0">
-                                <span class="btn-inner--icon"><i class="fa fa-code"></i></span>
-                                <span class="btn-inner--text">Components</span>
-                            </a>
-                            <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-white btn-icon mb-3 mb-sm-0">
-                                <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-                                <span class="btn-inner--text">Download HTML</span>
-                            </a>
-                        </div>
-                    </div>
+<!-- HEADER
+    ================================================== -->
+    <section class="section section_header" data-parallax="scroll" data-image-src="assets/img/25.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <!-- Heading -->
+                    <h1 class="section__heading section_header__heading text-center">
+                        Menu: Standard
+                    </h1>
+
                 </div>
-            </div>
-        </div>
-        <!-- SVG separator -->
-        <div class="separator separator-bottom separator-skew">
-            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-        </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
     </section>
-    <!-- 1st Hero Variation -->
-</div>
-<section class="section section-lg pt-lg-0 mt--200">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="row row-grid">
-                    <div class="col-lg-4 mt-5" ng-repeat="restaurant in $ctrl.restaurants | orderBy:'name'">
-                        <div class="card card-lift--hover shadow border-0">
-                            <div class="card-body py-5">
-                                <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                                    <i class="ni ni-planet"></i>
-                                </div>
-                                <h6 class="text-warning text-uppercase">{{ restaurant.name }}</h6>
-                                <p class="description mt-3">{{ restaurant.snippet }}</p>
-                                <div>
-                                    <span class="badge badge-pill badge-warning">marketing</span>
-                                    <span class="badge badge-pill badge-warning">product</span>
-                                    <span class="badge badge-pill badge-warning">launch</span>
-                                </div>
-                                <a href="#!/restaurants/{{ restaurant.id }}" class="btn btn-warning mt-4">Learn more</a>
-                            </div>
-                        </div>
+
+    <!-- MENU
+        ================================================== -->
+        <section class="section section_menu section_border_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Heading -->
+                        <h2 class="section__heading text-center">
+                            Browse by categories
+                        </h2>
+                        <p class="section__subheading text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Ratione numquam eos perferendis itaque hic unde, ad, laudantium minima.
+                        </p>
+
+                    </div>
+                </div> <!-- / .row -->
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Navigation -->
+                        <nav class="section_menu__nav">
+                            <ul>
+                                <li class="active">
+                                    <a href="#menu_images" data-filter=".mains">Mains</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".lunch">Lunch</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".dinner">Dinner</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".drinks">Drinks</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
+                <div class="row section_menu__grid" id="menu_images">
+
+                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="restaurant in $ctrl.restaurants">
+                        <a href="#!/restaurants/{{ restaurant.id }}" class="text-reset">
+                            <div class="section_menu__item">
+                                <div class="row">
+                                    <div class="col-3 align-self-center">
+                                        <div class="section_menu__item__img">
+                                            <img src="https://source.unsplash.com/random/?restaurant,{{ restaurant.id }}" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <h4>{{ restaurant.name }}</h4>
+                                        <p>
+                                        {{ restaurant.snippet }}
+                                        </p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="section_menu__item__price text-center">
+                                            $15
+                                        </div>
+                                    </div>
+                                </div> <!-- / .row -->
+                            </div>
+                        </a>
+                    </div>
+
+                </div> <!-- / .row -->
+            </div> <!-- / .container -->
+        </section>

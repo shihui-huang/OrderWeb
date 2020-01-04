@@ -1,20 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="clientApp">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
-        <meta name="author" content="Creative Tim">
-        <title>Argon Design System - Free Design System for Bootstrap 4</title>
-        <!-- Favicon -->
-        <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-        <!-- Icons -->
-        <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-        <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- Argon CSS -->
-        <link type="text/css" href="../assets/css/argon.css?v=1.1.0" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="assets/ico/manifest.json">
+        <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <meta name="msapplication-config" content="assets/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Touché - Café & Restaurant Template</title>
+
+        <!-- CSS Plugins -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="assets/plugins/lightbox/css/lightbox.min.css">
+        <link rel="stylesheet" href="assets/plugins/flickity/flickity.min.css">
+
+        <!-- CSS Global -->
+        <link rel="stylesheet" href="assets/css/theme.min.css">
 
         <!-- AngularJS-->
         <script src="lib/angular/angular.js"></script>
@@ -23,166 +29,158 @@
         <script src="app.module.js"></script>
         <script src="app.config.js"></script>
 
-        <script src="login/login.module.js"></script>
-        <script src="login/login.component.js"></script>
         <script src="restaurant-list/restaurant-list.module.js"></script>
         <script src="restaurant-list/restaurant-list.component.js"></script>
         <script src="restaurant-detail/restaurant-detail.module.js"></script>
         <script src="restaurant-detail/restaurant-detail.component.js"></script>
-    </head>
 
+    </head>
     <body>
-        <header class="header-global">
-            <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+
+        <!-- NAVBAR
+            ================================================== -->
+            <nav class="navbar navbar-light navbar-expand-lg fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-lg-5" href="#!/restaurants">
-                        <img src="../assets/img/brand/white.png" alt="brand">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <!-- Navbar: Brand -->
+                    <a class="navbar-brand navbar-brand_2 d-lg-none" href="index.html">Touché</a>
+
+                    <!-- Navbar: Toggler -->
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="navbar-collapse collapse" id="navbar_global">
-                        <div class="navbar-collapse-header">
-                            <div class="row">
-                                <div class="col-6 collapse-brand">
-                                    <a href="../index.html">
-                                        <img src="../assets/img/brand/blue.png" alt="brand">
-                                    </a>
+
+                    <!-- Navbar: Collapse -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <!-- Navbar navigation: Left -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="about-us.html">About Us</a>
+                            </li>
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="nav-item__menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Menu
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="nav-item__menu">
+                                    <a class="dropdown-item active" href="menu.html">Menu: Standard</a>
+                                    <a class="dropdown-item" href="menu_no-images.html">Menu: No Images</a>
                                 </div>
-                                <div class="col-6 collapse-close">
-                                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span></span>
-                                        <span></span>
-                                    </button>
-                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reservation.html">Reservation</a>
+                            </li>
+                        </ul>
+
+                        <!-- Brand name -->
+                        <a class="navbar-brand navbar-brand_2 d-none d-lg-flex" href="index.html">
+                            Touché
+                        </a>
+
+                        <!-- Navbar navigation: Right -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="news-and-events.html">News & Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact-us.html">Contact</a>
+                            </li>
+                        </ul>
+
+                    </div> <!-- / .navbar-collapse -->
+
+                </div> <!-- / .container -->
+            </nav> <!-- / .navbar -->
+
+            <div ng-view></div>
+
+            <!-- FOOTER
+                ================================================== -->
+                <footer class="section section_footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+
+                                <!-- About Us -->
+                                <h5 class="section_footer__heading">
+                                    About Us
+                                </h5>
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti dolorum, sint corporis nostrum, possimus unde eos vitae eius quasi saepe.
+                                </p>
+
                             </div>
-                        </div>
-                        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
-                                    <i class="ni ni-ui-04 d-lg-none"></i>
-                                    <span class="nav-link-inner--text">Components</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-xl">
-                                    <div class="dropdown-menu-inner">
-                                        <a href="https://demos.creative-tim.com/argon-design-system/docs/getting-started/overview.html" class="media d-flex align-items-center">
-                                            <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                                                <i class="ni ni-spaceship"></i>
-                                            </div>
-                                            <div class="media-body ml-3">
-                                                <h6 class="heading text-primary mb-md-1">Getting started</h6>
-                                                <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
-                                            </div>
-                                        </a>
-                                        <a href="https://demos.creative-tim.com/argon-design-system/docs/foundation/colors.html" class="media d-flex align-items-center">
-                                            <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                                                <i class="ni ni-palette"></i>
-                                            </div>
-                                            <div class="media-body ml-3">
-                                                <h6 class="heading text-primary mb-md-1">Foundation</h6>
-                                                <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
-                                            </div>
-                                        </a>
-                                        <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
-                                            <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                                                <i class="ni ni-ui-04"></i>
-                                            </div>
-                                            <div class="media-body ml-3">
-                                                <h5 class="heading text-warning mb-md-1">Components</h5>
-                                                <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
-                                    <i class="ni ni-collection d-lg-none"></i>
-                                    <span class="nav-link-inner--text">Examples</span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="../examples/landing.html" class="dropdown-item">Landing</a>
-                                    <a href="../examples/profile.html" class="dropdown-item">Profile</a>
-                                    <a href="#!/login" class="dropdown-item">Login</a>
-                                    <a href="#!/register" class="dropdown-item">Register</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-                                    <i class="fa fa-facebook-square"></i>
-                                    <span class="nav-link-inner--text d-lg-none">Facebook</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                                    <i class="fa fa-instagram"></i>
-                                    <span class="nav-link-inner--text d-lg-none">Instagram</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
-                                    <i class="fa fa-twitter-square"></i>
-                                    <span class="nav-link-inner--text d-lg-none">Twitter</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                                    <i class="fa fa-github"></i>
-                                    <span class="nav-link-inner--text d-lg-none">Github</span>
-                                </a>
-                            </li>
-                            <li class="nav-item d-none d-lg-block ml-lg-4">
-                                <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon">
-                                        <i class="fa fa-cloud-download mr-2"></i>
-                                    </span>
-                                    <span class="nav-link-inner--text">Download</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+                            <div class="col-sm-4">
 
-        <div ng-view></div>
+                                <!-- Contact info -->
+                                <h5 class="section_footer__heading">
+                                    Contact info
+                                </h5>
+                                <ul class="section_footer__info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i> 1234 Altschul, New York, NY 10027-0000
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-phone"></i> +1 987 654 3210
+                                    </li>
+                                    <li>
+                                        <i class="far fa-envelope"></i> <a href="mailto:admin@domain.com">admin@domain.com</a>
+                                    </li>
+                                </ul>
 
-        <footer class="footer has-cards">
-            <div class="container">
-                <div class="row align-items-center justify-content-md-between">
-                    <div class="col-md-6">
-                        <div class="copyright">
-                            &copy; 2019 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="nav nav-footer justify-content-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Core -->
-        <script src="../assets/vendor/jquery/jquery.min.js"></script>
-        <script src="../assets/vendor/popper/popper.min.js"></script>
-        <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="../assets/vendor/headroom/headroom.min.js"></script>
-        <!-- Argon JS -->
-        <script src="../assets/js/argon.js?v=1.1.0"></script>
+                            </div>
+                            <div class="col-sm-4">
+
+                                <!-- Opening hours -->
+                                <h5 class="section_footer__heading">
+                                    Opening hours
+                                </h5>
+                                <div class="section_footer__open">
+                                    <div class="section_footer__open__days">Monday - Thursday</div>
+                                    <div class="section_footer__open__time">10:00 AM - 11:00 PM</div>
+                                </div>
+                                <div class="section_footer__open">
+                                    <div class="section_footer__open__days">Friday - Sunday</div>
+                                    <div class="section_footer__open__time">12:00 AM - 03:00 AM</div>
+                                </div>
+
+                            </div>
+                        </div> <!-- / .row -->
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!-- Copyright -->
+                                <div class="section_footer__copyright">
+                                    &copy; <span id="js-current-year"></span> Touché. All rights reserved.
+                                </div>
+
+                            </div>
+                        </div> <!-- / .row -->
+                    </div> <!-- / .container -->
+                </footer>
+
+                <!-- JAVASCRIPT
+                    ================================================== -->
+
+                    <!-- JS Global -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- JS Plugins -->
+                    <script src="assets/plugins/parallax/parallax.min.js"></script>
+                    <script src="assets/plugins/isotope/lib/imagesloaded.pkgd.min.js"></script>
+                    <script src="assets/plugins/isotope/isotope.pkgd.min.js"></script>
+                    <script src="assets/plugins/flickity/flickity.pkgd.min.js"></script>
+                    <script src="assets/plugins/lightbox/js/lightbox.min.js"></script>
+                    <script src="assets/plugins/reservation/reservation.js"></script>
+                    <script src="assets/plugins/alerts/alerts.js"></script>
+
+                    <!-- JS Custom -->
+                    <script src="assets/js/theme.min.js"></script>
+                    <script src="assets/js/custom.js"></script>
+
     </body>
-
 </html>

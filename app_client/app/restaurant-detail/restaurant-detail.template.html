@@ -1,61 +1,88 @@
-<main class="profile-page">
-<section class="section-profile-cover section-shaped my-0">
-    <!-- Circles background -->
-    <div class="shape shape-style-1 shape-primary alpha-4">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="card card-profile shadow mt--300">
-            <div class="px-4">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 order-lg-2">
-                        <div class="card-profile-image">
-                            <a href="#">
-                                <img src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle" alt="image">
-                            </a>
-                        </div>
+<!-- HEADER
+    ================================================== -->
+    <section class="section section_header" data-parallax="scroll" data-image-src="assets/img/25.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <!-- Heading -->
+                    <h1 class="section__heading section_header__heading text-center">
+                        {{ $ctrl.restaurantId }}
+                    </h1>
+
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+
+    <!-- MENU
+        ================================================== -->
+        <section class="section section_menu section_border_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Heading -->
+                        <h2 class="section__heading text-center">
+                            Browse by categories
+                        </h2>
+                        <p class="section__subheading text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Ratione numquam eos perferendis itaque hic unde, ad, laudantium minima.
+                        </p>
+
                     </div>
-                    <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                        <div class="card-profile-actions py-4 mt-lg-0">
-                            <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                            <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 order-lg-1">
-                        <div class="card-profile-stats d-flex justify-content-center">
-                            <div>
-                                <span class="heading">22</span>
-                                <span class="description">Friends</span>
-                            </div>
-                            <div>
-                                <span class="heading">10</span>
-                                <span class="description">Photos</span>
-                            </div>
-                            <div>
-                                <span class="heading">89</span>
-                                <span class="description">Comments</span>
-                            </div>
-                        </div>
+                </div> <!-- / .row -->
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Navigation -->
+                        <nav class="section_menu__nav">
+                            <ul>
+                                <li class="active">
+                                    <a href="#menu_images" data-filter=".mains">Mains</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".lunch">Lunch</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".dinner">Dinner</a>
+                                </li>
+                                <li>
+                                    <a href="#menu_images" data-filter=".drinks">Drinks</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
-                <div class="text-center mt-5">
-                    <h3>{{ $ctrl.restaurantId }}<span class="font-weight-light">, 27</span></h3>
-                </div>
-            </div>
-        </div>
-</section>
-</main>
+                <div class="row section_menu__grid" id="menu_images">
+
+                    <!--
+                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="restaurant in $ctrl.restaurants">
+                        <div class="section_menu__item">
+                            <div class="row">
+                                <div class="col-3 align-self-center">
+                                    <div class="section_menu__item__img">
+                                        <img src="https://source.unsplash.com/random/?restaurant,{{ restaurant.id }}" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <h4>{{ restaurant.name }}</h4>
+                                    <p>
+                                    {{ restaurant.snippet }}
+                                    </p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="section_menu__item__price text-center">
+                                        $15
+                                    </div>
+                                </div>
+                            </div> <!-- / .row -->
+                        </div>
+                    </div>
+                    -->
+
+                </div> <!-- / .row -->
+            </div> <!-- / .container -->
+        </section>
