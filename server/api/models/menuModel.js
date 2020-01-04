@@ -4,6 +4,7 @@ let builder = require('./modelsBuilder');
 
 //Menu object constructor
 let Menu = function (menu) {
+    this.name = menu.name;
     this.userId = menu.userId;
     this.status = menu.status;
     this.menuId = menu.menuId;

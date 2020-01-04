@@ -8,7 +8,7 @@ angular.
             function RestaurantListController($http) {
                 var self = this;
                 
-                $http.get('restaurants/restaurants.json').then(function(response) {
+                $http.get('http://localhost:3000/restaurants').then(function(response) {
                     self.restaurants = response.data;
                 });
             }
