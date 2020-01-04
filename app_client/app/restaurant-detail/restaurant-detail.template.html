@@ -7,7 +7,7 @@
 
                     <!-- Heading -->
                     <h1 class="section__heading section_header__heading text-center">
-                        {{ $ctrl.restaurantId }}
+                        {{ $ctrl.restaurant.name }}
                     </h1>
 
                 </div>
@@ -27,8 +27,7 @@
                             Browse by categories
                         </h2>
                         <p class="section__subheading text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ratione numquam eos perferendis itaque hic unde, ad, laudantium minima.
+                            {{ $ctrl.restaurant.description }}
                         </p>
 
                     </div>
@@ -58,19 +57,18 @@
                 </div>
                 <div class="row section_menu__grid" id="menu_images">
 
-                    <!--
-                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="restaurant in $ctrl.restaurants">
+                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="img in $ctrl.restaurant.images">
                         <div class="section_menu__item">
                             <div class="row">
                                 <div class="col-3 align-self-center">
                                     <div class="section_menu__item__img">
-                                        <img src="https://source.unsplash.com/random/?restaurant,{{ restaurant.id }}" alt="...">
+                                        <img ng-src="{{ img }}" alt="...">
                                     </div>
                                 </div>
                                 <div class="col-7">
                                     <h4>{{ restaurant.name }}</h4>
                                     <p>
-                                    {{ restaurant.snippet }}
+                                    {{ img }}
                                     </p>
                                 </div>
                                 <div class="col-2">
@@ -81,7 +79,6 @@
                             </div> <!-- / .row -->
                         </div>
                     </div>
-                    -->
 
                 </div> <!-- / .row -->
             </div> <!-- / .container -->
