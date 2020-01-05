@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-var routes = require('./api/routes/router'); //importing route
-routes(app); //register the route
+var routes = require('./api/routes/router'); //importing routes
+routes(app); //register the routes
 
 
 app.listen(port);

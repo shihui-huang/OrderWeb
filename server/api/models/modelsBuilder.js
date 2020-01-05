@@ -41,10 +41,8 @@ exports.list = function (objectName) {
 
             if (err) {
                 console.log("error: ", err);
-                result(null, err);
+                result(err, null);
             } else {
-                console.log('owners : ', res);
-
                 result(null, res);
             }
         });
@@ -56,7 +54,7 @@ exports.update = function (objectName) {
         sql.query("UPDATE " + objectName + " SET ? WHERE id = ?", [object, id], function (err, res) {
             if (err) {
                 console.log("error: ", err);
-                result(null, err);
+                result(err, null);
             } else {
                 sql.query("SELECT * FROM " + objectName + " WHERE id =?", [id], function (err, res) {
                     if (err) {
