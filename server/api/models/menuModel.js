@@ -5,10 +5,10 @@ let builder = require('./modelsBuilder');
 //Menu object constructor
 let Menu = function (menu) {
     this.name = menu.name;
-    this.userId = menu.userId;
-    this.status = menu.status;
-    this.menuId = menu.menuId;
-    this.created_at = new Date();
+    this.price = menu.price;
+    this.description = menu.description;
+    this.restaurantId = menu.restaurantId;
+    this.is_available = menu.is_available;
 };
 
 Menu.createMenu = builder.create('menus');
