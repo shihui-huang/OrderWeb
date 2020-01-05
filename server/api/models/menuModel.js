@@ -9,6 +9,7 @@ let Menu = function (menu) {
     this.description = menu.description;
     this.restaurantId = menu.restaurantId;
     this.is_available = menu.is_available;
+    this.category = menu.category;
 };
 
 Menu.createMenu = builder.create('menus');
@@ -35,6 +36,7 @@ let createTable = 'create table if not exists menus(' +
     'price int unsigned null, ' +
     'is_available tinyint(1) default 1 null, ' +
     'restaurantId int unsigned null, ' +
+    'category char(255) null, ' +
     'constraint menus_restaurants_id_fk foreign key (restaurantId) references restaurants (id) on delete cascade' +
     ');';
 
