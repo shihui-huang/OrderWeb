@@ -1,10 +1,10 @@
 'use strict';
 module.exports = function (app) {
-    let order = require('../controllers/orderController');
-    let restaurant = require('../controllers/restaurantController');
     let owner = require('../controllers/ownerController');
+    let restaurant = require('../controllers/restaurantController');
     let menu = require('../controllers/menuController');
     let user = require('../controllers/userController');
+    let order = require('../controllers/orderController');
 
     // todoList Routes
     app.route('/orders')

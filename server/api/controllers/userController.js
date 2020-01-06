@@ -6,8 +6,7 @@ exports.list = function (req, res) {
     User.getAllUser(function (err, user) {
         if (err)
             res.send(err);
-        console.log('res', user);
-        res.send(user);
+        res.json(user);
     });
 };
 

@@ -6,8 +6,7 @@ exports.list = function (req, res) {
     Restaurant.getAllRestaurant(function (err, restaurant) {
         if (err)
             res.send(err);
-        console.log('res', restaurant);
-        res.send(restaurant);
+        res.json(restaurant);
     });
 };
 

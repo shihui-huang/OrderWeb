@@ -6,8 +6,7 @@ exports.list = function (req, res) {
     Owner.getAllOwner(function (err, owner) {
         if (err)
             res.send(err);
-        console.log('res', owner);
-        res.send(owner);
+        res.json(owner);
     });
 };
 

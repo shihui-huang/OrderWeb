@@ -6,8 +6,7 @@ exports.list = function(req, res) {
     Order.getAllOrder(function(err, order) {
         if (err)
             res.send(err);
-        console.log('res', order);
-        res.send(order);
+        res.json(order);
     });
 };
 

@@ -6,8 +6,7 @@ exports.list = function (req, res) {
     Menu.getAllMenu(function (err, menu) {
         if (err)
             res.send(err);
-        console.log('res', menu);
-        res.send(menu);
+        res.json(menu);
     });
 };
 
@@ -17,7 +16,7 @@ exports.create = function (req, res) {
     //handles null error
     if (!new_menu.name) {
 
-        res.status(400).send({error: true, message: 'Please provide menu/status'});
+        res.status(400).send({error: true, message: 'Please provide menu/name'});
 
     } else {
 
