@@ -87,7 +87,11 @@
                         <!-- Navbar navigation: Right -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <ngcart-checkout service="log">Checkout cart</ngcart-checkout>
+                                <ngcart-checkout service="log" settings="{ url:'/checkout' }">Checkout cart</ngcart-checkout>
+                            </li>
+                            <li class="nav-link">
+                                <ngcart-summary>
+                                </ngcart-summary>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="news-and-events.html">News & Events</a>

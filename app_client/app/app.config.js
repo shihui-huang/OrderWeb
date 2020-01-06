@@ -18,6 +18,9 @@ angular.
                 when('/restaurants/:restaurantId/edit', {
                     template: '<restaurant-edit></restaurant-edit>'
                 }).
+                when('/checkout', {
+                    template: '<ngcart-cart></ngcart-cart>'
+            }).
                 otherwise('/restaurants');
         }
     ]);
