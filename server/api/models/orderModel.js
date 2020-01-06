@@ -15,14 +15,20 @@ Order.getOrderById = function (orderId, result) {
         if (err)
             result(err, null);
         else {
-            sql.query('SELECT restaurantId FROM menus WHERE id = ' + order[0].menuId, [], function (err, res) {
-                if (err)
-                    result(err, null);
-                else {
-                    order[0].restaurantId = res[0].restaurantId;
-                    result(null, order);
-                }
-            })
+            try {
+
+                sql.query('SELECT restaurantId FROM menus WHERE id = ' + order[0].menuId, [], function (err, res) {
+                    if (err)
+                        result(err, null);
+                    else {
+                        order[0].restaurantId = res[0].restaurantId;
+                        result(null, order);
+                    }
+                })
+            }catch (e) {
+                result(e.toString(), null);
+                console.log(e);
+            }
         }
     });
 };

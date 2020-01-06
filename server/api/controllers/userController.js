@@ -6,7 +6,8 @@ exports.list = function (req, res) {
     User.getAllUser(function (err, user) {
         if (err)
             res.send(err);
-        res.json(user);
+        else
+            res.json(user);
     });
 };
 
@@ -24,7 +25,8 @@ exports.create = function (req, res) {
 
             if (err)
                 res.send(err);
-            res.json(user);
+            else
+                res.json(user);
         });
     }
 };
@@ -33,7 +35,8 @@ exports.read = function (req, res) {
     User.getUserById(req.params.userId, function (err, user) {
         if (err)
             res.send(err);
-        res.json(user);
+        else
+            res.json(user);
     });
 };
 
@@ -41,7 +44,8 @@ exports.update = function (req, res) {
     User.updateById(req.params.userId, new User(req.body), function (err, user) {
         if (err)
             res.send(err);
-        res.json(user);
+        else
+            res.json(user);
     });
 };
 
@@ -51,14 +55,16 @@ exports.delete = function (req, res) {
     User.remove(req.params.userId, function (err, user) {
         if (err)
             res.send(err);
-        res.json({message: 'User successfully deleted'});
+        else
+            res.json({message: 'User successfully deleted'});
     });
 };
 
-exports.orders = function(req, res){
+exports.orders = function (req, res) {
     User.getOrders(req.params.userId, function (err, orders) {
-        if(err)
+        if (err)
             res.send(err);
-        res.json(orders);
+        else
+            res.json(orders);
     })
 };

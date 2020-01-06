@@ -2,7 +2,7 @@
 ### Pour installer le serveur SQL:
 ```bash
 sudo apt install mysql-server
-sudo sytemctl start mysql
+sudo systemctl start mysql
 ```
 
 ### Pour initialiser la base de données:
