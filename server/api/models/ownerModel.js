@@ -3,8 +3,10 @@ var sql = require('./db.js');
 let builder = require('./modelsBuilder');
 
 //Owner object constructor
-var Owner = function(owner){
+var Owner = function (owner) {
     this.name = owner.name;
+    this.password = owner.password;
+    this.email = owner.email;
 };
 
 Owner.createOwner = builder.create('owners');
@@ -15,7 +17,7 @@ Owner.remove = builder.delete('owners');
 
 Owner.getRestaurants = function (id, result) {
     sql.query("SELECT * from restaurants WHERE ownerId = ?", id, function (err, res) {
-        if(err){
+        if (err) {
             console.log("error:", err);
             result(err, null);
         } else {
@@ -24,15 +26,19 @@ Owner.getRestaurants = function (id, result) {
     })
 };
 
-var createTable ='create table if not exists owners(id int unsigned auto_increment primary key, name char(255) not null);';
+var createTable = 'create table if not exists owners(' +
+    'id int unsigned auto_increment primary key, ' +
+    'name char(255) not null, ' +
+    'email char(255) null, ' +
+    'password char(255) null' +
+    ');';
 
 sql.query(createTable, function (err, res) {
-    if(err) {
+    if (err) {
         console.log("error: ", err);
-    }
-    else{
+    } else {
         console.log("Table 'owners' exists");
     }
 });
 
-module.exports= Owner;
+module.exports = Owner;
