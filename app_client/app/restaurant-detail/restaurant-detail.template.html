@@ -32,7 +32,9 @@
                                 <li>Address : {{ $ctrl.restaurant.address }}</li>
                             </ul>
                         </p>
-
+                        <ngcart-addtocart id="{{ $ctrl.restaurant.id }}" name="{{ $ctrl.restaurant.name }}" price="{{ $ctrl.restaurant.price }}" quantity="1" quantity-max="30">
+                            Add to cart
+                        </ngcart-addtocart>
                     </div>
                 </div> <!-- / .row -->
                 <div class="row">
