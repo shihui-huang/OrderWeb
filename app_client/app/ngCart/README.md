@@ -1,4 +1,4 @@
-ngCart
+<ngcart-checkout service="http" settings="{ url:'/checkout' }"></ngcart-checkout>ngCart
 ======
 
 Really simple shopping cart for AngularJS
