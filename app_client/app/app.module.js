@@ -8,5 +8,6 @@ angular.module('clientApp', [
     'restaurantEdit',
     'restaurantList',
     'restaurantNew',
-    'menuNew'
+    'menuNew',
+    'menuDelete'
 ]);
