@@ -65,3 +65,12 @@ exports.delete = function (req, res) {
             res.json({message: 'Restaurant successfully deleted'});
     });
 };
+
+exports.menus = function (req, res) {
+    Restaurant.getMenus(req.params.restaurantId, function (err, menus) {
+        if (err)
+            res.send(err);
+        else
+            res.json(menus);
+    })
+};

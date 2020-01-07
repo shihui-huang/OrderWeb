@@ -37,9 +37,6 @@
                         <p class="section__subheading text-center">
                         <a class="btn btn-outline-secondary" href="#!/restaurants/{{$ctrl.restaurant.id}}/menus/new" role="button">Create Menu</a>
                         </p>
-                        <ngcart-addtocart id="{{ $ctrl.restaurant.id }}" name="{{ $ctrl.restaurant.name }}" price="{{ $ctrl.restaurant.price }}" quantity="1" quantity-max="30">
-                            Add to cart
-                        </ngcart-addtocart>
                     </div>
                 </div> <!-- / .row -->
                 <div class="row">
@@ -84,7 +81,11 @@
                                 </div>
                                 <div class="col-2">
                                     <div class="section_menu__item__price text-center">
+                                    
                                         ${{ menu.price }}
+                                        <ngcart-addtocart id="{{ menu.id }}" name="{{ menu.name }}" price="{{ menu.price }}" quantity="1" quantity-max="30" data="">
+                                            Add to cart
+                                        </ngcart-addtocart>
                                     </div>
                                 </div>
                             </div>

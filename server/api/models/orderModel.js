@@ -5,7 +5,8 @@ let builder = require('./modelsBuilder');
 //Order object constructor
 let Order = function (order) {
     this.userId = order.userId;
-    this.status = order.status;
+    if (order.status)
+        this.status = order.status;
     this.menuId = order.menuId;
     this.created_at = new Date();
 };
@@ -25,7 +26,7 @@ Order.getOrderById = function (orderId, result) {
                         result(null, order);
                     }
                 })
-            }catch (e) {
+            } catch (e) {
                 result(e.toString(), null);
                 console.log(e);
             }
@@ -34,7 +35,7 @@ Order.getOrderById = function (orderId, result) {
 };
 Order.getAllOrder = function (result) {
     sql.query('SELECT orders.id, status, userId, menuId, created_at, restaurantId FROM orders JOIN menus ON menuId = menus.id', [], function (err, orders) {
-        if(err)
+        if (err)
             result(err, null);
         else
             result(null, orders);
