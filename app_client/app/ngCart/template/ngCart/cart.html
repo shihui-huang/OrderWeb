@@ -1,9 +1,9 @@
-
+<section class="section section_border_bottom">
 <div class="alert alert-warning" role="alert" ng-show="ngCart.getTotalItems() === 0">
     Your cart is empty
 </div>
 
-<div class="table-responsive col-lg-12" ng-show="ngCart.getTotalItems() > 0">
+<div class="table-responsive col-12" ng-show="ngCart.getTotalItems() > 0">
 
     <table class="table table-striped ngCart cart">
 
@@ -58,7 +58,9 @@
     .ngCart.cart span[ng-click] {
         cursor: pointer;
     }
+
     .ngCart.cart .glyphicon.disabled {
-        color:#aaa;
+        color: #aaa;
     }
 </style>
+</section>
