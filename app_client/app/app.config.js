@@ -4,7 +4,11 @@ angular.
         function config($routeProvider) {
             $routeProvider.
                 when('/restaurants', {
-                    template: '<restaurant-list></restaurant-list>'
+                    template: '<restaurant-list></restaurant-list>'/*,
+                    data: {
+                        authorizedRoles: [USER_ROLES.admin, USER_ROLES.editor, USER_ROLES.guest]
+                    // Exemple pour bloquer une route, les rôles sont définis juste en dessous
+                    }*/
                 }).
                 when('/restaurants/new', {
                     template: '<restaurant-new></restaurant-new>'
