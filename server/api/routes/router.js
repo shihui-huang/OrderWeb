@@ -25,6 +25,9 @@ module.exports = function (app) {
         .put(restaurant.update)
         .delete(restaurant.delete);
 
+    app.route('/restaurants/:restaurantId/menus')
+        .get(restaurant.menus);
+
     app.route('/menus')
         .get(menu.list)
         .post(menu.create);

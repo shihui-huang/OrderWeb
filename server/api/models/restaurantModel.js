@@ -17,6 +17,17 @@ Restaurant.getRestaurantById = builder.read('restaurants');
 Restaurant.getAllRestaurant = builder.list('restaurants');
 Restaurant.updateById = builder.update('restaurants');
 Restaurant.remove = builder.delete('restaurants');
+Restaurant.getMenus = function (id, result) {
+    sql.query("SELECT * from menus WHERE restaurantId = ?", id, function (err, res) {
+        if (err) {
+            console.log("error:", err);
+            result(err, null);
+        } else {
+            result(null, res);
+        }
+    })
+};
+
 
 var createScript = 'create table if not exists restaurants(' +
     'id int unsigned auto_increment primary key, ' +

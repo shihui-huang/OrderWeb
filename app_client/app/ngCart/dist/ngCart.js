@@ -327,7 +327,7 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
             transclude: true,
             templateUrl: function (element, attrs) {
                 if (typeof attrs.templateUrl == 'undefined') {
-                    return 'template/ngCart/addtocart.html';
+                    return 'ngCart/template/ngCart/addtocart.html';
                 } else {
                     return attrs.templateUrl;
                 }
@@ -357,7 +357,7 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
             scope: {},
             templateUrl: function (element, attrs) {
                 if (typeof attrs.templateUrl == 'undefined') {
-                    return 'template/ngCart/cart.html';
+                    return 'ngCart/template/ngCart/cart.html';
                 } else {
                     return attrs.templateUrl;
                 }
@@ -376,7 +376,7 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
             transclude: true,
             templateUrl: function (element, attrs) {
                 if (typeof attrs.templateUrl == 'undefined') {
-                    return 'template/ngCart/summary.html';
+                    return 'ngCart/template/ngCart/summary.html';
                 } else {
                     return attrs.templateUrl;
                 }
@@ -394,15 +394,17 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
                     fulfilmentProvider.setService($scope.service);
                     fulfilmentProvider.setSettings($scope.settings);
                     fulfilmentProvider.checkout()
-                        .then(function (data, status, headers, config) {
-                            $rootScope.$broadcast('ngCart:checkout_succeeded', data);
-                        })
-                        .error(function (data, status, headers, config) {
-                            $rootScope.$broadcast('ngCart:checkout_failed', {
-                                statusCode: status,
-                                error: data
-                            });
-                        });
+                        .then(
+                            function (data, status, headers, config) {
+                                $rootScope.$broadcast('ngCart:checkout_succeeded', data);
+                            },
+                            function (data, status, headers, config) {
+                                $rootScope.$broadcast('ngCart:checkout_failed', {
+                                    statusCode: status,
+                                    error: data
+                                });
+                            }
+                        );
                 }
             }]),
             scope: {
@@ -412,7 +414,7 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
             transclude: true,
             templateUrl: function (element, attrs) {
                 if (typeof attrs.templateUrl == 'undefined') {
-                    return 'template/ngCart/checkout.html';
+                    return 'ngCart/template/ngCart/checkout.html';
                 } else {
                     return attrs.templateUrl;
                 }
