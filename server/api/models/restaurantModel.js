@@ -9,6 +9,7 @@ var Restaurant = function (restaurant) {
     this.ownerId = restaurant.ownerId;
     this.address = restaurant.address;
     this.phone = restaurant.phone;
+    this.category = restaurant.category;
 };
 
 Restaurant.createRestaurant = builder.create('restaurants');
@@ -23,6 +24,7 @@ var createScript = 'create table if not exists restaurants(' +
     'ownerId int unsigned not null, ' +
     'address char(255) null, ' +
     'phone char(20) null, ' +
+    'category char(255) null, ' +
     'constraint restaurants_owners_id_fk foreign key (ownerId) references owners (id) on delete cascade' +
     ');';
 

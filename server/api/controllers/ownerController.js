@@ -6,8 +6,8 @@ exports.list = function (req, res) {
     Owner.getAllOwner(function (err, owner) {
         if (err)
             res.send(err);
-        console.log('res', owner);
-        res.send(owner);
+        else
+            res.json(owner);
     });
 };
 
@@ -21,7 +21,8 @@ exports.create = function (req, res) {
         Owner.createOwner(new_owner, function (err, owner) {
             if (err)
                 res.send(err);
-            res.json(owner);
+            else
+                res.json(owner);
         });
     }
 };
@@ -30,7 +31,8 @@ exports.read = function (req, res) {
     Owner.getOwnerById(req.params.ownerId, function (err, owner) {
         if (err)
             res.send(err);
-        res.json(owner);
+        else
+            res.json(owner);
     });
 };
 
@@ -38,7 +40,8 @@ exports.update = function (req, res) {
     Owner.updateById(req.params.ownerId, new Owner(req.body), function (err, owner) {
         if (err)
             res.send(err);
-        res.json(owner);
+        else
+            res.json(owner);
     });
 };
 
@@ -46,14 +49,16 @@ exports.delete = function (req, res) {
     Owner.remove(req.params.ownerId, function (err, owner) {
         if (err)
             res.send(err);
-        res.json({message: 'Owner successfully deleted'});
+        else
+            res.json({message: 'Owner successfully deleted'});
     });
 };
 
-exports.restaurants = function(req, res){
+exports.restaurants = function (req, res) {
     Owner.getRestaurants(req.params.ownerId, function (err, restaurants) {
-        if(err)
+        if (err)
             res.send(err);
-        res.json(restaurants);
+        else
+            res.json(restaurants);
     })
 };

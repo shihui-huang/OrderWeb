@@ -25,6 +25,7 @@
         <!-- AngularJS-->
         <script src="lib/angular/angular.js"></script>
         <script src="lib/angular-route/angular-route.js"></script>
+        <script src="ngCart/dist/ngCart.min.js"></script>
 
         <script src="app.module.js"></script>
         <script src="app.config.js"></script>
@@ -87,6 +88,13 @@
 
                         <!-- Navbar navigation: Right -->
                         <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <ngcart-checkout service="log" settings="{ url:'/checkout' }">Checkout cart</ngcart-checkout>
+                            </li>
+                            <li class="nav-link">
+                                <ngcart-summary>
+                                </ngcart-summary>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="news-and-events.html">News & Events</a>
                             </li>
