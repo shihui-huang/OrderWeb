@@ -5,6 +5,7 @@ angular.
         controller: ['$http', '$routeParams',
             function RestaurantDetailController($http, $routeParams) {
                 var self = this;
+                self.restaurantId = $routeParams.restaurantId;
 
                 $http.get('http://localhost:3000/restaurants/' + $routeParams.restaurantId).
                     then(function success(response) {

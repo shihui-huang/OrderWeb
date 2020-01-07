@@ -26,7 +26,7 @@
                         <h2 class="section__heading text-center">
                             Menu by categories
                             <a  href="#!/restaurants/{{$ctrl.restaurant.id}}/edit"><i class="far fa-edit"></i></a>
-                            <a class="text-danger" href="#!/restaurants/{{$ctrl.restaurant.id}}/delete"><i class="far fa-trash-alt"></i></a>
+                            <a  href="#!/restaurants/{{$ctrl.restaurant.id}}/delete"><i class="far fa-trash-alt"></i></a>
                         </h2>
                         <p class="section__subheading text-center">
                             <ul>
@@ -75,13 +75,17 @@
                                 </div>
                                 <div class="col-7">
                                     <h4>{{ menu.name }}</h4>
+
                                     <p>
-                                    {{ img }}
+                                    {{ menu.description }}
+                                    </p>
+                                    <p>
+                                    <a  href="#!/restaurants/{{$ctrl.restaurantId}}/menus/{{menu.id}}/delete"><i class="far fa-trash-alt"></i></a>
                                     </p>
                                 </div>
                                 <div class="col-2">
                                     <div class="section_menu__item__price text-center">
-                                    
+
                                         ${{ menu.price }}
                                         <ngcart-addtocart id="{{ menu.id }}" name="{{ menu.name }}" price="{{ menu.price }}" quantity="1" quantity-max="30" data="">
                                             Add to cart
