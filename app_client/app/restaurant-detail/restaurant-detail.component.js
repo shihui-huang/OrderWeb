@@ -13,6 +13,13 @@ angular.
                         console.log(response);
                     }
                 );
+                $http.get('http://localhost:3000/restaurants/' + $routeParams.restaurantId + '/menus').
+                    then(function success(response) {
+                        self.menus = response.data;
+                    }, function error(response) {
+                        console.log(response);
+                    }
+                );
             }
         ]
     });

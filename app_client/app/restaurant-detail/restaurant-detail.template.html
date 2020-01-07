@@ -24,13 +24,18 @@
 
                         <!-- Heading -->
                         <h2 class="section__heading text-center">
-                            Browse by categories
+                            Menu by categories
+                            <a  href="#!/restaurants/{{$ctrl.restaurant.id}}/edit"><i class="far fa-edit"></i></a>
+                            <a class="text-danger" href="#!/restaurants/{{$ctrl.restaurant.id}}/delete"><i class="far fa-trash-alt"></i></a>
                         </h2>
                         <p class="section__subheading text-center">
                             <ul>
                                 <li>Phone : {{ $ctrl.restaurant.phone }}</li>
                                 <li>Address : {{ $ctrl.restaurant.address }}</li>
                             </ul>
+                        </p>
+                        <p class="section__subheading text-center">
+                        <a class="btn btn-outline-secondary" href="#!/restaurants/{{$ctrl.restaurant.id}}/menus/new" role="button">Create Menu</a>
                         </p>
 
                     </div>
@@ -60,13 +65,13 @@
                 </div>
                 <div class="row section_menu__grid" id="menu_images">
 
-                    <!--
-                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="img in $ctrl.restaurant.images">
+
+                    <div class="col-md-6 section_menu__grid__item mains" ng-repeat="menu in $ctrl.menus">
                         <div class="section_menu__item">
                             <div class="row">
                                 <div class="col-3 align-self-center">
                                     <div class="section_menu__item__img">
-                                        <img ng-src="{{ img }}" alt="...">
+                                        <img ng-src="" alt="...">
                                     </div>
                                 </div>
                                 <div class="col-7">
@@ -83,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    -->
+
 
                 </div> <!-- / .row -->
             </div> <!-- / .container -->

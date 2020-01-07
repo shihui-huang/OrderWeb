@@ -18,6 +18,15 @@ angular.
                 when('/restaurants/:restaurantId/edit', {
                     template: '<restaurant-edit></restaurant-edit>'
                 }).
+                when('/restaurants/:restaurantId/menus/new', {
+                    template: '<menu-new></menu-new>'
+                }).
+                when('/restaurants/:restaurantId/menus/:menuId/delete', {
+                    template: '<menu-delete></menu-delete>'
+                }).
+                when('/restaurants/:restaurantId/menus/:menuId/edit', {
+                    template: '<menu-edit></menu-edit>'
+                }).
                 otherwise('/restaurants');
         }
     ]);
