@@ -17,7 +17,7 @@ angular.module('clientApp').config(['$routeProvider',
         }).when('/restaurants/:restaurantId/menus/:menuId/edit', {
             template: '<menu-edit></menu-edit>'
         }).when('/checkout', {
-            template: '<ngcart-cart></ngcart-cart>'
+            template: '<cart></cart>'
         }).otherwise('/restaurants');
     }
 ]);

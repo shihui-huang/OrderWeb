@@ -88,7 +88,8 @@
                                     <div class="section_menu__item__price text-center">
 
                                         ${{ menu.price }}
-                                        <ngcart-addtocart id="{{ menu.id }}" name="{{ menu.name }}" price="{{ menu.price }}" quantity="1" quantity-max="30" data="">
+                                        <ngcart-addtocart id="{{ menu.id }}" name="{{ menu.name }}" price="{{ menu.price }}" quantity="1" quantity-max="30"
+                                                          data="{ userId: $ctrl.userId, menuId: menu.id }">
                                             Add to cart
                                         </ngcart-addtocart>
                                     </div>
