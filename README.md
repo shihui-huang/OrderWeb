@@ -3,9 +3,9 @@
 
  This application takes the developer through the process of building a web-application using
 AngularJS. It's a simple site for the owners to create their restaurant and add their menus, and also for the clients ordering menus.
- ( We‘ve not done authentication system yet)
 
-![](headert.png)
+
+![](screenshot-of-our-web/Main-page.png)
 
 ## Prerequisites
 
